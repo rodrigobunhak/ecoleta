@@ -1,0 +1,34 @@
+@media (max-width: 900px) {
+  #page-home {
+    background: none;
+  }
+
+  #page-home .content {
+    align-items: center;
+    text-align: center;
+  }
+
+  #page-home header a {
+    position: absolute;
+    bottom: 48px;
+
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  
+  #pag-home main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  #page-home main h1 {
+    font-size: 27px;
+  }
+  
+  #page-home main p {
+    font-size: 12px;
+    line-height: 18px;
+    margin-top: 12px;
+  }
+}
