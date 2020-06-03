@@ -7,6 +7,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Roboto&family=Ubuntu:wght@300;400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/styles/main.css">
   <link rel="stylesheet" href="/styles/home.css">
+  <link rel="stylesheet" href="/styles/modal.css">
   <link rel="stylesheet" href="/styles/responsive.css">
 </head>
 <body>
@@ -28,6 +29,26 @@
     
         <a href="#"><span></span><strong>Pesquisar pontos de coleta</strong></a>
       </main>
+    </div>
+
+
+  </div>
+
+  <div id="modal" class="hide">
+    <div class="content">
+      <div class="header">
+        <h1>Pontos de Coleta</h1>
+        <a href="">Fechar</a>
+      </div>
+      <form action="">
+        <label for="search">Cidade</label>
+        <div class="search field">
+          <input type="text" name="search" placeholder="Pesquise por cidade">
+          <button>
+            <img src="/assets/search.svg" alt="pesquisar">
+          </button>
+        </div>
+      </form>
     </div>
   </div>
 </body>
