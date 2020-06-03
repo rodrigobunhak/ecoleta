@@ -38,4 +38,12 @@
   #modal .header {
     margin-bottom: 12px;
   }
+
+  form {
+    margin: 30px auto;
+  }
+
+  form fieldset {
+    margin-top: 32px;
+  }
 }
