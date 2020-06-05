@@ -10,15 +10,15 @@ nunjucks.configure("src/views", {
 })
 
 server.get("/", (reg, res) => {
-	res.render("index.html")
+	return res.render("index.html")
 })
 
 server.get("/create-point", (reg, res) => {
-	res.rende("create-point.html")
+	return res.render("create-point.html")
 })
 
-server.get("/search-results", (reg, res) => {
-	res.render("search-results.html")
+server.get("/search", (reg, res) => {
+	return res.render("search-results.html")
 })
 
 server.listen(3000)
