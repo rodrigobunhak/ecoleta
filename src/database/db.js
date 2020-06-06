@@ -54,16 +54,16 @@ module.exports = db
 //   //db.run(query, values, afterInsertDate)
 
 //   // ######### consultar os dados da tabela ##########
-//   // db.all(`SELECT * FROM places`, function(err, rows) {
-//   //   if(err) {
-//   //     return console.log(err)
-//   //   }
-//   //   console.log("Aqui estão seus registros: ")
-//   //   console.log(rows)
-//   // })
+// db.all(`SELECT id, name, city FROM places`, function(err, rows) {
+//   if(err) {
+//     return console.log(err)
+//   }
+//   console.log("Aqui estão seus registros: ")
+//   console.log(rows)
+// })
 
 //   // ######### remover dados da tabela ##########
-  // db.run(`DELETE FROM places WHERE id = ?`, [2], function(err) {
+  // db.run(`DELETE FROM places WHERE id = ?`, [9], function(err) {
   //   if(err) {
   //     return console.log(err)
   //   }

@@ -67,6 +67,8 @@
 
   font-size: 18px;
   color: #6c6c80;
+
+  outline: none;
 }
 
 #modal form button {
@@ -75,6 +77,8 @@
 
   background-color: var(--primary-color);
 
+  cursor: pointer;
+  outline: none;
   border: 0;
   border-radius: 0 8px 8px 0;
 }
@@ -83,3 +87,15 @@
   background-color: #2fb85e;
 }
 
+/* Estilo do modal para a pagina create point */
+
+#modal.point .content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#modal.point h1 {
+  color: white;
+  margin-top: 32px;
+}

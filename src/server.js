@@ -6,23 +6,73 @@ const db = require("./database/db")
 
 server.use(express.static("public"))
 
+// habilitar o uso do req.body na aplicação
+server.use(express.urlencoded({extended: true}))
+
 const nunjucks = require("nunjucks")
 nunjucks.configure("src/views", {
 	express: server,
 	noCache: true
 })
 
-server.get("/", (reg, res) => {
+server.get("/", (req, res) => {
 	return res.render("index.html")
 })
 
-server.get("/create-point", (reg, res) => {
+server.get("/create-point", (req, res) => {
+	// console.log(req.query)
 	return res.render("create-point.html")
 })
 
-server.get("/search", (reg, res) => {
+server.post("/savepoint", (req, res) => {
+	// console.log(req.body)
+	// return res.send('formulário enviado pelo post...')
+
+	// inserir dados no banco de dados
+	const query = `
+		INSERT INTO places (
+				name,
+				image,
+				address,
+				address2,
+				state,
+				city,
+				items
+		) VALUES (?, ?, ?, ?, ?, ?, ?);
+		`
+  const values = [
+			req.body.name,
+			req.body.image,
+			req.body.address,
+			req.body.address2,
+			req.body.nameState,
+			req.body.nameCity,
+			req.body.items
+		]
+
+  function afterInsertDate(err) {
+    if(err) {
+			console.log(err)
+			return res.send("Erro no cadastro")
+    }
+    console.log("Cadastrado com sucesso!")
+		
+		return res.render("create-point.html", {saved: true})
+  }
+
+  db.run(query, values, afterInsertDate)
+})
+
+server.get("/search", (req, res) => {
+	 
+	// caso a pesquisa esteja vazia
+	if(req.query.search === "") {
+		return res.render("search-results.html")
+	}
+
+
 	// pegar os dados do banco de dados
-	  db.all(`SELECT * FROM places`, function(err, rows) {
+	  db.all(`SELECT * FROM places WHERE city LIKE '%${req.query.search}%'`, function(err, rows) {
     if(err) {
       return console.log(err)
 		}

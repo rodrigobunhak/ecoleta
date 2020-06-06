@@ -15,15 +15,15 @@ function createOption(url, campo) {
 }
 
 function populateUfs() {
-  const ufSelect = document.querySelector("select[name=uf]");
+  const ufSelect = document.querySelector("select[name=idState]");
   createOption("https://servicodados.ibge.gov.br/api/v1/localidades/estados", ufSelect);
 }
 populateUfs();
 
 function populateCities(){
-  const citySelect = document.querySelector("select[name=city]");
-  const stateInput = document.querySelector("input[name=state]");
-  const cityInput = document.querySelector("input[name=city]")
+  const citySelect = document.querySelector("select[name=idCity]");
+  const stateInput = document.querySelector("input[name=nameState]");
+  const cityInput = document.querySelector("input[name=nameCity]")
   const ufValue = event.target.value; // pega o id do municipio
   const url = `https://servicodados.ibge.gov.br/api/v1/localidades/estados/${ufValue}/municipios`;
   
@@ -50,12 +50,13 @@ function populateCities(){
 
 // adiciona evento change ao campo seleção de estado
 document
-  .querySelector("select[name=uf]")
+  .querySelector("select[name=idState]")
   .addEventListener("change", populateCities)
 
 
 const itemsToCollected = document.querySelectorAll(".items-grid li")
 const collectedItems = document.querySelector("input[name=items]")
+
 
 // adiciona evento de clique nos itens da lista
 for (const item of itemsToCollected) {
@@ -87,5 +88,5 @@ function handleSelectedItem(event) {
   } else {
     selectedItems.push(itemId)
   } 
-  collectedItems.value = selectedItems  
+  collectedItems.value = selectedItems
 }
